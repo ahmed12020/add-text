@@ -1,2 +1,0 @@
-python django rest_framework 
-python request  files
