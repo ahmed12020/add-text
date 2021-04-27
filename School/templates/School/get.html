@@ -8,13 +8,9 @@
 <h1>Get Session ........!!!!!</h1>
 <h1>
     {{name}}<hr>
-    {% for key in keys %}
-        {{key}}
-    {% endfor %}<hr>
-    {% for key, value in items %}
-        {{key}}::{{value}}
-    {% endfor %}<hr>
-    {{age}}
+    {{request.session.get_session_cookie_age}}<br>
+    {{request.session.get_expiry_age}}<br>
+    {{request.session.get_expiry_date}}
 </h1>
 </body>
 </html>

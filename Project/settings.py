@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'School',
+    'import_export',
     'django_filters',
     'rest_framework',
     'ckeditor',
@@ -227,3 +228,5 @@ CKEDITOR_CONFIGS = {
 }
 
 
+# SESSION_ENGINE = 'django.contrib.session.backends.file'
+# SESSION_FILE_PATH = os.path.join(BASE_DIR, 'session')

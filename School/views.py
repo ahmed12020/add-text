@@ -19,8 +19,7 @@ def studentview(request):
 
 
 def home(request):
-    students = Student.objects.all() # delete
-    # print('querystudent: ', students.query)
+    students = Student.objects.all()
     return render(request, 'School/home.html', {'students':students,'data':'ahmed alaa ramadan'})
 
 # @method_decorator(staff_member_required, name='dispatch')
@@ -88,12 +87,12 @@ def setsession(request):
     return render(request, 'School/set.html')
 
 def getsession(request):
-    # name = request.session['name']
-    name = request.session.get('name', default='Default Name')
-    keys = request.session.keys()
-    items = request.session.items()
-    age = request.session.setdefault('age',1000)
-    return render(request, 'School/get.html', {'name':name,'keys':keys,'items':items,'age':age})
+    if 'name' in request.session:
+        name = request.session['name']
+        request.session.modified = True
+        return render(request, 'School/get.html', {'name':name})
+    else:
+        return HttpResponse('request session Expires')
 
 
 def delsession(request):
